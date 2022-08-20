@@ -1,0 +1,21 @@
+version: "2.1"
+services:
+  squid:
+    image: distahl/squid:latest
+    container_name: squid
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - TS=America/Toronto
+    volumes:
+      - ./squid:/etc/squid
+    ports:
+      - 3128:3128
+      - 3129:3129
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.code-server.rule=Host(`squid.borketh.feyko.dev`)"
+      - "traefik.http.routers.code-server.entrypoints=websecure"
+      - "traefik.http.routers.code-server.tls.certresolver=myresolver"
+    restart: unless-stopped

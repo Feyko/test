@@ -1,0 +1,167 @@
+[
+  {
+    "name": "steammanifest",
+    "response": "A Steam file is corrupt: `{1}`. Open Steam, then go to that file in File Explorer and delete it. Then, verify the game files so that it will recreate that file. If Steam shows the game as not installed, install it to the same location and it will see that it is actually installed.",
+    "crash": "\\[INFO\\]\\s+Invalid steam manifest (.+appmanifest_526870\\.acf)"
+  },
+  {
+    "name": "updateall",
+    "response": "In order to update from SML 2.2.1 to SML 3.1.1 you should disable the outdated mods when prompted, then check for updates and click \"Update all\" rather than updating each mod individually",
+    "crash": "No version of SML is compatible with the other installed mods\\. Dependants: (?:[^\\s]+ \\(requires .+?\\), )*?([^\\s]+ \\(requires [\\^\u003e\u003d]?2\\.\\d+\\.\\d+\\))"
+  },
+  {
+    "name": "missingalpakit",
+    "response": "Some of your Alpakit files are missing. Please redownload the folder /Build/Alpakit.Automation/ from the repo",
+    "crash": "Failed to find command PackagePlugin"
+  },
+  {
+    "name": "smart_autoconnect",
+    "response": "This may be caused by Smart\u0027s autoconnect feature. Here is the mod\u0027s creator statement on this issue : \"Auto-connecting poles with belts may crash so please save the game and reload it after you built those long belts and before pushing items to there\"",
+    "crash": "Assertion failed: \\(Index \u003e\u003d 0\\) \u0026 \\(Index \u003c ArrayNum\\) \\[File:d:\\\\ws\\\\sb-lowprio\\\\ue4\\\\engine\\\\source\\\\runtime\\\\core\\\\public\\\\Containers\\/Array\\.h] Assertion failed: \\(Index \u003e\u003d 0\\) \u0026 \\(Index \u003c ArrayNum\\)"
+  },
+  {
+    "name": "good",
+    "response": ":3",
+    "crash": "(smart|awesome|great|useful|good|thanks)\\s+(bot|fred)"
+  },
+  {
+    "name": "nospaceleft",
+    "response": "SMM caches the mods you download in `%localappdata%\\SatisfactoryModManager` (which usually is on your C: drive), so that when you switch profiles or disable mods it won\u0027t have to download the files again.\nYour C: drive is now full and SMM cannot download the mods to its cache anymore. To solve the issue you have to either clean up your C: drive, or you can create a symlink for the cache to another drive that has enough space available.\nTo learn more about the symlink option, use the command `\u003esymlinkcache`",
+    "crash": "ENOSPC: no space left on device, write"
+  },
+  {
+    "name": "reddit",
+    "response": "Go to your game install dir and delete the `FactoryGame\\Binaries\\Win64` and `Engine\\Binaries\\Win64` folders. After that, verify the game files from Epic/Steam",
+    "crash": "(UE4|FactoryGame)-SML-Win64-Shipping.dll\u0027[‘‘\u0027’`]*\\s*\\(GetLastError\u003d1114\\)"
+  },
+  {
+    "name": "nullschematic",
+    "response": "You have a null schematic in your GameWorldModule",
+    "crash": "attempt to register null schematic"
+  },
+  {
+    "name": "eperm",
+    "response": "Sometimes SMM isn\u0027t able to read some of the files it needs to, and needs to be run as administrator to work. This should only need to be done once.",
+    "crash": "(EPERM: )"
+  },
+  {
+    "name": "engineupgrade",
+    "response": "\u003eengineupgrade",
+    "crash": "failed\\s+to\\s+load\\s+because\\s+module\\s+.+\\s+could\\s+not\\s+be\\s+loaded\\."
+  },
+  {
+    "name": "engineupgrade2",
+    "response": "\u003eengineupgrade",
+    "crash": "\\?GPixelFormats@"
+  },
+  {
+    "name": "nullrecipe",
+    "response": "Your {1} schematic references a null recipe (`None`) in the unlocks list",
+    "crash": "^(?:\\[20.*)?(?:Attempt|Fatal) .* \u0027.*\\.([^/]+)_C\u0027 registered by .* references invalid NULL Recipe"
+  },
+  {
+    "name": "buildforshipping",
+    "response": "You need to also build for Shipping before using Alpakit",
+    "crash": "Missing UE4Game binary."
+  },
+  {
+    "name": "riderlink",
+    "response": "Somehow RiderLink isn\u0027t installed (we don\u0027t know why this happens yet). To fix this, you can reinstall it in Rider\u0027s settings menu like this: https://cdn.discordapp.com/attachments/601030071221878784/894346572765212742/unknown.png",
+    "crash": "\"(\u0027RiderLink\u0027\\s*failed\\s*to\\s*load)|(The\\s*following\\s*modules\\s*are\\s*missing\\s*or\\s*built\\s*with\\s*a\\s*different\\s*engine\\s*version:\\s*RD\\s*RiderLink)\""
+  },
+  {
+    "name": "alpakitautomationdll",
+    "response": "Go to the mentioned file, right click on it, hit Properties and tick the box at the bottom to unlock the file",
+    "crash": "Failed to load script DLL"
+  },
+  {
+    "name": "d3d",
+    "response": "Please force the use of DirectX11 with your game by adding the -d3d11 argument to your game",
+    "crash": "GPU crashed or D3D device removed"
+  },
+  {
+    "name": "exprenderer",
+    "response": "This crash may be caused by the Experimental Conveyor Renderer. Please turn it off in your Graphics setting and see if the crash goes away. You may experience a significant performance drop when doing so",
+    "crash": "UE4-FactoryGame-Win64-Shipping.dll!AFGBuildableConveyorBase::Factory_Tick()"
+  },
+  {
+    "name": "mehbot",
+    "response": ":|",
+    "crash": "(\\s|^)(meh|average|ok|weird|mediocre)\\s*bot"
+  },
+  {
+    "name": "dependentnodebfired",
+    "response": "We aren\u0027t quite sure what causes this, but if you get this while opening the game, try not to go into another window while it opens. Additionally, as with most UE4 errors, try verifying files.",
+    "crash": "!DependentNode-\u003ebFired\\s*\\["
+  },
+  {
+    "name": "fredsimpsforfeyko",
+    "response": "ONLY I AM ALLOWED TO PRAISE MY GOD",
+    "crash": "good\\sfeyko"
+  },
+  {
+    "name": "moremilestonesmp",
+    "response": "More Milestones doesn\u0027t work in multiplayer currently",
+    "crash": "FactoryGame_FactoryGame_Win64_Shipping!AFGItemRegrowSubsystem::AddPickup"
+  },
+  {
+    "name": "sml300mp",
+    "response": "Multiplayer doesn\u0027t work with SML 3.0.0. It was fixed in SML 3.1.0, but it only works with game version \u003e\u003d151773 which is only available on Experimental currently",
+    "crash": "Assertion failed: GameState"
+  },
+  {
+    "name": "notbuilt",
+    "response": "You did not build the project in Visual Studio. Please go back to the Project Setup section of the docs and do not skip steps nor do more than is asked",
+    "crash": "FactoryGame\\s+could\\s+not\\s+be\\s+compiled.\\s+Try\\s+rebuilding\\s+from\\s+source\\s+manually"
+  },
+  {
+    "name": ".netmissing",
+    "response": "Your .NET Framework install is either missing or oudated. Please download and install the latest one from https://dotnet.microsoft.com/download/visual-studio-sdks. Make sure to download the .NET **Framework**SDK",
+    "crash": "Install a version of .NET Framework SDK at"
+  },
+  {
+    "name": "noautomationtool",
+    "response": "Open your .sln with Visual Studio/Rider and build the project for Shipping",
+    "crash": "UATHelper: Package Mod Task (Windows): RunUAT.bat ERROR: Visual studio and/or AutomationTool.csproj was not found, nor was Engine\\Binaries\\DotNET\\AutomationTool.exe. Can\u0027t run the automation tool."
+  },
+  {
+    "name": "tolowercase",
+    "response": "\u003etolowercase",
+    "crash": "c\\.toLowerCase is not a function"
+  },
+  {
+    "name": "fixit",
+    "response": "Yes we can!",
+    "crash": "Can we (fix\\s*it|ficsit)\\s*?"
+  },
+  {
+    "name": "oldproject",
+    "response": "Your project is outdated. Please update it",
+    "crash": "ERROR: Cannot find game version file"
+  },
+  {
+    "name": "needcompile",
+    "response": "Please open your .sln with Visual Studio/Rider and build the project for both Development Editor and Shipping",
+    "crash": "Module\\s+[‘‘\u0027’`]*FactoryGame[‘‘\u0027’`]*\\s+could\\s+not\\s+be\\s+found"
+  },
+  {
+    "name": "oldengine",
+    "response": "Please update your engine to the latest from \u003chttps://github.com/SatisfactoryModdingUE/UnrealEngine/releases\u003e",
+    "crash": "The\\s+name[‘‘\u0027’`]*bOverrideAppNameForSharedBuild[‘‘\u0027’`]*\\s+does\\s+not\\s+exist\\s+in\\s+the\\s+current\\s+context"
+  },
+  {
+    "name": "modupdates",
+    "response": "You have mod updates available. If you are having issues with outdated mods, make sure to click Update All rather than updating each mod individually.",
+    "crash": "Mod updates are available"
+  },
+  {
+    "name": "dataja",
+    "response": "https://dontasktoask.com/",
+    "crash": "(can I ask( you)*|I have) a question (about (?:\\w+\\s?){0,2})?.{0,5}$"
+  },
+  {
+    "name": "author",
+    "response": "I was created by 3 amazing people\n\u003chttps://github.com/Feyko/FICSIT-Fred/graphs/contributors\u003e",
+    "crash": "who (created|made|wrote) (fred|the bot)"
+  }
+]

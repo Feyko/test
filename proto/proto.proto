@@ -1,0 +1,15 @@
+syntax = "proto3";
+package test;
+
+import "google/protobuf/struct.proto";
+
+option go_package = "./gen";
+
+message Test {
+  string Test = 1;
+  oneof One {
+    string String = 2;
+    int32 Int = 3;
+  }
+  google.protobuf.Value Any = 4;
+}
