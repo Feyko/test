@@ -1,94 +1,27 @@
 package main
 
-var s string
+import (
+	"fmt"
+	"log"
+	"os"
+	"regexp"
+)
 
-var m = map[string]func(){
-	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA": A,
-	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB": B,
-	"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC": C,
-}
-
-func Switch(s string) {
-	switch s {
-	case "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA":
-		A()
-	case "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB":
-		B()
-	case "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC":
-		C()
+func main() {
+	if len(os.Args) < 2 {
+		fmt.Println("This program takes one path to a log file as an argument.")
+		os.Exit(1)
 	}
-}
-
-func SwitchInline(s string) {
-	switch s {
-	case "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA":
-		s += "A"
-	case "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB":
-		s += "B"
-	case "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC":
-		s += "C"
+	path := os.Args[1]
+	b, err := os.ReadFile(path)
+	if err != nil {
+		log.Fatalf("Could not read the file %v: %v", path, err)
 	}
-}
-
-func SwitchR(s string) func() {
-	switch s {
-	case "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA":
-		return A
-	case "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB":
-		return B
-	case "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC":
-		return C
+	re := regexp.MustCompile(`Warning: OSS: EOS_SessionModification_SetHostAddress\(EOS.\w{32}(\w{32}):7777\)`)
+	id := re.FindSubmatch(b)
+	if len(id) == 0 {
+		fmt.Println("The log doesn't not contain a session ID")
+		os.Exit(2)
 	}
-	return nil
-}
-
-func A() {
-	s += "A"
-}
-
-func B() {
-	s += "B"
-}
-
-func C() {
-	s += "C"
-}
-
-type T struct {
-}
-
-func (t T) A() {
-	s += "A"
-}
-
-func (t T) B() {
-	s += "B"
-}
-
-func (t T) C() {
-	s += "C"
-}
-
-func (t T) A_dispatch() {
-	A()
-}
-
-func (t T) B_dispatch() {
-	B()
-}
-
-func (t T) C_dispatch() {
-	C()
-}
-
-func (t T) A_resolve() func() {
-	return A
-}
-
-func (t T) B_resolve() func() {
-	return B
-}
-
-func (t T) C_resolve() func() {
-	return C
+	fmt.Println(string(id[1]))
 }
