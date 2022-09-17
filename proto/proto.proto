@@ -13,3 +13,14 @@ message Test {
   }
   google.protobuf.Value Any = 4;
 }
+
+message Top {
+  oneof v {
+    string a = 1;
+    string b = 2;
+  }
+}
+
+message Test2 {
+  repeated Top values = 1;
+}
