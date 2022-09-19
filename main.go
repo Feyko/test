@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type Command struct {
 	TheShiz string
 }
@@ -46,8 +44,8 @@ func (t *TheCollection[T]) Put(id string, elem T) {
 }
 
 func main() {
-	repo := NewRepo()
-	collection := Repository[Command](repo).GetCollection("ayo")
-	collection.Put("ayo", Command{TheShiz: "Noooowaayyy"})
-	fmt.Println(collection.Get("ayo"))
+	//repo := NewRepo()
+	//collection := Repository[Command](repo).GetCollection("ayo")
+	//collection.Put("ayo", Command{TheShiz: "Noooowaayyy"})
+	//fmt.Println(collection.Get("ayo"))
 }
