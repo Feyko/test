@@ -29,6 +29,42 @@ type LongUpdate struct {
 	SomeFieldName, AnotherFieldName, ALongFieldName, YetAnotherFieldName, A, B, C, D, E, F, TheFieldNameIWant *string
 }
 
+func BenchmarkReflectValueShort(b *testing.B) {
+	ReflectValue(b, &ShortStruct{})
+}
+
+func BenchmarkReflectValue(b *testing.B) {
+	ReflectValue(b, &Struct{})
+}
+
+func BenchmarkReflectValueLong(b *testing.B) {
+	ReflectValue(b, &LongStruct{})
+}
+
+func ReflectValue(b *testing.B, obj any) {
+	for i := 0; i < b.N; i++ {
+		reflect.ValueOf(obj)
+	}
+}
+
+func BenchmarkReflectTypeShort(b *testing.B) {
+	ReflectType(b, &ShortStruct{})
+}
+
+func BenchmarkReflectType(b *testing.B) {
+	ReflectType(b, &Struct{})
+}
+
+func BenchmarkReflectTypeLong(b *testing.B) {
+	ReflectType(b, &LongStruct{})
+}
+
+func ReflectType(b *testing.B, obj any) {
+	for i := 0; i < b.N; i++ {
+		reflect.TypeOf(obj)
+	}
+}
+
 func BenchmarkNativeSetShort(b *testing.B) {
 	v := &ShortStruct{}
 	b.ResetTimer()
