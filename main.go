@@ -3,8 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	s := []string{"a"}
-	p := &s[0]
-	*p = "b"
-	fmt.Println(s)
+	var s *string
+	var a any = s
+	fmt.Println(a == nil)
 }
