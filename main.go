@@ -1,9 +1,24 @@
 package main
 
-import "fmt"
+import "test/nest"
+
+type Parent struct {
+	A string
+}
+
+type SomeUnion interface {
+	Parent | nest.Child
+}
+
+type Ayo interface {
+	Ayo()
+}
 
 func main() {
-	var s *string
-	var a any = s
-	fmt.Println(a == nil)
+	f(Parent{}.Ayo())
+	p := Parent{}
+}
+
+func f(a Ayo) {
+	a.Ayo()
 }

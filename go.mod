@@ -5,6 +5,8 @@ go 1.18
 require (
 	github.com/arangodb/go-driver v1.3.1
 	github.com/disintegration/imaging v1.6.2
+	github.com/graphql-go/graphql v0.8.0
+	github.com/lib/pq v1.10.7
 	google.golang.org/protobuf v1.28.1
 )
 
